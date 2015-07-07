@@ -19,7 +19,7 @@ $ brew install node
 ### 2. Bower
 [Bower](http://bower.io) is a front-end package manager that make life supes easy.
 ```
-$ npm install -global bower
+$ npm install --global bower
 ```
 
 ### 3. Gulp
