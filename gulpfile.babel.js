@@ -12,12 +12,12 @@ const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
 gulp.task('scripts', () => {
-  browserify({ debug: true })
+  browserify({ debug: true, extensions: ['.js', '.jsx'] })
     .transform(babelify)
     .require('app/scripts/main.js', { entry: true })
     .bundle()
     .on('error', function (err) { console.log('Error: ' + err.message); })
-    .pipe(fs.createWriteStream('app/scripts/bundle.js'));
+    .pipe(fs.createWriteStream('.tmp/scripts/bundle.js'));
 });
 
 gulp.task('styles', () => {
@@ -121,12 +121,15 @@ gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
   gulp.watch([
     'app/*.html',
     'app/scripts/**/*.js',
+    'app/scripts/**/*.jsx',
     'app/images/**/*',
-    '.tmp/fonts/**/*'
+    '.tmp/fonts/**/*',
+    '.tmp/scripts/**/*.js'
   ]).on('change', reload);
 
   gulp.watch('app/styles/**/*.scss', ['styles']);
-  gulp.watch('app/scripts/**/*.js', ['scripts', reload]);
+  gulp.watch('app/scripts/**/*.js', ['scripts']);
+  gulp.watch('app/scripts/**/*.jsx', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });

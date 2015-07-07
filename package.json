@@ -1,4 +1,11 @@
 {
+  "name": "guerre",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aaronpanch/guerre"
+  },
+  "license": "MIT",
+  "private": true,
   "engines": {
     "node": ">=0.12.0"
   },
@@ -38,5 +45,8 @@
         "single"
       ]
     }
+  },
+  "dependencies": {
+    "react": "^0.13.3"
   }
 }
