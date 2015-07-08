@@ -6,7 +6,7 @@ import del from 'del';
 import {stream as wiredep} from 'wiredep';
 import browserify from 'browserify';
 import babelify from 'babelify';
-import fs from 'fs';
+import source from 'vinyl-source-stream';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -17,7 +17,8 @@ gulp.task('scripts', () => {
     .require('app/scripts/main.js', { entry: true })
     .bundle()
     .on('error', function (err) { console.log('Error: ' + err.message); })
-    .pipe(fs.createWriteStream('.tmp/scripts/bundle.js'));
+    .pipe(source('bundle.js'))
+    .pipe(gulp.dest('./.tmp/scripts'));
 });
 
 gulp.task('styles', () => {
