@@ -1,7 +1,5 @@
 # guerre
 
------
-
 French, _noun_: War
 
 A browser based version of the relatively brainless card game _War!_
@@ -28,14 +26,20 @@ $ npm install --global bower
 $ npm install --global gulp
 ```
 
-### 4. Install Dependencies
-Navigate to the root of the project and run:
+### 4. Clone this repository
+Pick your favorite directory and run:
+```
+$ git clone https://github.com/aaronpanch/guerre.git
+```
+
+### 5. Install Dependencies
+Navigate to the root of the project `cd guerre` and run:
 ```
 $ npm install
 $ bower install
 ```
 
-## 5. Start the Server (last step!)
+## 6. Start the Server (last step!)
 ```
 $ gulp serve
 ```
