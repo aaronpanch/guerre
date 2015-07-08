@@ -1,4 +1,2 @@
-import React from 'react';
-import App from './index';
-
-React.render(<App />, window.document.querySelector("#target"));
+console.log('Guerre!');
+// We don't need this file yet :)
