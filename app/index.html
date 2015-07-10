@@ -15,6 +15,7 @@
     <!-- endbuild -->
 
     <!-- build:css styles/main.css -->
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400|Playfair+Display:900" rel='stylesheet' type="text/css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
     
@@ -29,7 +30,38 @@
 
     <!-- Main Content Below -->
 
-    <h1 class="greeting">Add markup here!</h1>
+    <header class="topbar">
+      <div class="topbar__left">
+        <section class="hud-panel">
+          <h2 class="hud-panel__title">Round</h2>
+          <div class="hud-panel__body">
+            <p class="round-number">10</p>
+          </div>
+        </section>
+      </div>
+
+      <div class="topbar__right">
+        <section class="hud-panel">
+          <h2 class="hud-panel__title">Score</h2>
+          <div class="hud-panel__body">
+            <table>
+              <tbody>
+                <tr>
+                  <td>Player 1:</td>
+                  <td style="text-align: right;">28</td>
+                </tr>
+                <tr>
+                  <td>Player 2:</td>
+                  <td style="text-align: right;">24</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <h1 class="topbar__title">War (Guerre)</h1>
+    </header>
 
     <!-- Main Content Above -->
     

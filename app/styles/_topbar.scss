@@ -1,0 +1,19 @@
+.topbar {
+  overflow: hidden;
+  padding: 1em;
+}
+
+.topbar__left {
+  float: left;
+}
+
+.topbar__right {
+  float: right;
+}
+
+.topbar__title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 5em;
+  text-align: center;
+}
