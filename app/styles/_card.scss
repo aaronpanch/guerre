@@ -1,9 +1,11 @@
+@import 'variables';
+
 $card-width: 260px;
 
 .card {
   background: white;
   border-radius: 5px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  box-shadow: $shadow;
   display: flex;
   height: $card-width * 1.4;
   justify-content: center;
@@ -19,12 +21,13 @@ $card-width: 260px;
   }
 
   &.card--flipped {
-    background: #4d4d4d;
+    background: $primary-color;
+    border: 7px solid white;
   }
 
   &.card--opponent {
     transform: rotate(180deg);
-    box-shadow: 0 -1px 4px rgba(0,0,0,0.3);
+    box-shadow: $shadow-flipped;
   }
 
   &:before, &:after {
