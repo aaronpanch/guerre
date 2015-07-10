@@ -1,0 +1,14 @@
+.card-deck {
+  position: relative;
+}
+
+.card-deck__item {
+  position: absolute;
+
+  @for $i from 1 through 9 {
+    &:nth-child(#{$i}) {
+      top: -5px * ($i - 1);
+      left: 5px * ($i - 1);
+    }
+  }
+}

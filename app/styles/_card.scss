@@ -3,7 +3,7 @@ $card-width: 260px;
 .card {
   background: white;
   border-radius: 5px;
-  box-shadow: 0 1px 4px #cdcdcd;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
   display: flex;
   height: $card-width * 1.4;
   justify-content: center;
@@ -14,7 +14,8 @@ $card-width: 260px;
   &.card--spacer {
     background: transparent;
     box-shadow: none;
-    display: block;
+    display: inline-block;
+    overflow: visible;
   }
 
   &.card--flipped {
@@ -23,6 +24,7 @@ $card-width: 260px;
 
   &.card--opponent {
     transform: rotate(180deg);
+    box-shadow: 0 -1px 4px rgba(0,0,0,0.3);
   }
 
   &:before, &:after {
