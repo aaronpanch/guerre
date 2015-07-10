@@ -1,78 +1,86 @@
+$card-width: 260px;
+
 .card {
   background: white;
   border-radius: 5px;
   box-shadow: 0 1px 4px #cdcdcd;
-  height: 350px;
+  display: flex;
+  height: $card-width * 1.4;
+  justify-content: center;
   overflow: hidden;
   position: relative;
-  width: 250px;
+  width: $card-width;
 
   &.card--spacer {
     background: transparent;
     box-shadow: none;
-  }
-}
-
-.card__face {
-  display: flex;
-  height: 100%;
-  justify-content: center;
-
-  .card--opponent > & {
-    transform: rotate(180deg);
-    transform-origin: center;
+    display: block;
   }
 
-  .card--flipped > & {
+  &.card--flipped {
     background: #4d4d4d;
+  }
+
+  &.card--opponent {
+    transform: rotate(180deg);
+  }
+
+  &:before, &:after {
+    display: inline-block;
+    font-size: 25px;
+    line-height: 1;
+    padding: 15px;
+    position: absolute;
+    white-space: pre;
+  }
+
+  &:before {
+    left: 0;
+    top: 0;
+  }
+
+  &:after {
+    bottom: 0;
+    right: 0;
+    transform: rotate(-180deg);
+  }
+
+  &.card--spades {
+    &:before, &:after {
+      content: attr(data-rank) "\A\2660";
+    }
+  }
+
+  &.card--hearts {
+    &:before, &:after {
+      color: #FC3D49;
+      content: attr(data-rank) "\A\2665";
+    }
+  }
+
+  &.card--diamonds {
+    &:before, &:after {
+      color: #FC3D49;
+      content: attr(data-rank) "\A\2666";
+    }
+  }
+
+  &.card--clubs {
+    &:before, &:after {
+      content: attr(data-rank) "\A\2663";
+    }
   }
 }
 
 .card__logo {
   align-self: center;
+  background: url(../images/logo_dark.png) center no-repeat;
+  background-size: contain;
   flex: 1;
-  max-width: 40%;
-}
+  height: 29%;
 
-.card__rank {
-  display: inline-block;
-  font-size: 25px;
-  line-height: 1;
-  padding: 15px;
-  position: absolute;
-
-  &:after {
-    display: block;
-    font-size: 1.4em;
-  }
-
-  .spades &:after {
-    content: '\2660';
-  }
-
-  .hearts &:after {
-    color: #FC3D49;
-    content: '\2665';
-  }
-
-  .diamonds &:after {
-    color: #FC3D49;
-    content: '\2666';
-  }
-
-  .clubs &:after {
-    content: '\2663';
-  }
-
-  &:first-of-type {
-    left: 0;
-    top: 0;
-  }
-
-  &:nth-of-type(2) {
-    bottom: 0;
-    right: 0;
-    transform: rotate(-180deg);
-    transform-origin: center;
+  .card--flipped > & {
+    background: url(../images/logo_light.png) center no-repeat;
+    background-size: contain;
   }
 }
