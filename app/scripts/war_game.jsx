@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import Game from './models/game'
 import PlayingCard from './playing_card';
 import PlayingCardStack from './playing_card_stack';
 import Spacer from './spacer';
@@ -12,10 +13,48 @@ export default class WarGame extends React.Component {
   constructor(props) {
     super(props);
 
+    this.game = new Game();
+
     this.state = {
-      computerCard: { suit: 'diamonds', rank: 'A' },
-      playerCard: { suit: 'spades', rank: 'K' }
+      round: 0,
+      playerScore: 0,
+      computerScore: 0,
+      playerCard: null,
+      playerPrizes: [],
+      computerCard: null,
+      computerPrizes: [],
+      winner: null,
+      phase: 'newGame'
     };
+  }
+
+  buttonText() {
+    var translation = {
+      newGame: 'New Game',
+      draw: 'Draw',
+      warDraw: 'Draw Another',
+      reinforce: 'Draw Three',
+      collect: 'Collect',
+      give: 'Give'
+    };
+
+    var lookup = this.state.phase;
+
+    if (lookup === 'collect' && this.state.winner != this.game.player) {
+      lookup = 'give';
+    }
+
+    return translation[lookup];
+  }
+
+  nextStep() {
+    var gameState = this.game.step();
+
+    this.setState(Object.assign({
+      round: this.game.round,
+      playerScore: this.game.player.score,
+      computerScore: this.game.computer.score
+    }, gameState));
   }
 
   render() {
@@ -23,11 +62,11 @@ export default class WarGame extends React.Component {
       <div>
         <header className="topbar">
           <div className="topbar__left">
-            <GameRound round="10" />
+            <GameRound round={ this.state.round } />
           </div>
 
           <div className="topbar__right">
-            <GameScore playerScore="28" computerScore="24" />
+            <GameScore playerScore={this.state.playerScore} computerScore={this.state.computerScore} />
           </div>
 
           <h1 className="topbar__title">War (Guerre)</h1>
@@ -36,14 +75,14 @@ export default class WarGame extends React.Component {
         <main>
           <section className="card-mat">
             <div className="card-mat__slot">
-              <PlayingCardStack>
-                <PlayingCard flipped/>
-                <PlayingCard flipped/>
-                <PlayingCard flipped/>
+              <PlayingCardStack opponent>
+                {this.state.computerPrizes.map((el, i) => {
+                  return <PlayingCard {...el} flipped={i % 4 !== 3} key={`computerPrize${i}`} />
+                })}
               </PlayingCardStack>
             </div>
             <div className="card-mat__slot">
-              <PlayingCard {...this.state.computerCard}/>
+              { this.state.computerCard ? <PlayingCard {...this.state.computerCard} /> : <Spacer placeholder/> }
             </div>
             <div className="card-mat__slot">
               <Spacer>
@@ -56,17 +95,17 @@ export default class WarGame extends React.Component {
             <div className="card-mat__slot">
               <Spacer>
                 <h3 className="player-name">Player 1</h3>
-                <button className="button">Draw</button>
+                <button className="button" onClick={this.nextStep.bind(this)}>{ this.buttonText() }</button>
               </Spacer>
             </div>
             <div className="card-mat__slot">
-              <PlayingCard {...this.state.playerCard}/>
+              { this.state.playerCard ? <PlayingCard {...this.state.playerCard} /> : <Spacer placeholder/> }
             </div>
             <div className="card-mat__slot">
               <PlayingCardStack>
-                <PlayingCard flipped/>
-                <PlayingCard flipped/>
-                <PlayingCard flipped/>
+                {this.state.playerPrizes.map((el, i) => {
+                  return <PlayingCard {...el} flipped={i % 4 !== 3} key={`playerPrize${i}`}/>
+                })}
               </PlayingCardStack>
             </div>
           </section>

@@ -1,4 +1,4 @@
-$deck-offset: 5px;
+$deck-offset: 25px;
 
 .card-deck {
   position: relative;
@@ -9,8 +9,12 @@ $deck-offset: 5px;
 
   @for $i from 1 through 9 {
     &:nth-child(#{$i}) {
-      top: -$deck-offset * ($i - 1);
+      top: 0;
       left: $deck-offset * ($i - 1);
+    }
+
+    .card-deck--opponent &:nth-child(#{$i}) {
+      left: -$deck-offset * ($i - 1);
     }
   }
 }

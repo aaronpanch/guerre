@@ -20,6 +20,10 @@ $card-width: 260px;
     overflow: visible;
   }
 
+  &.card--placeholder {
+    border: 1px solid rgba(0,0,0,0.2);
+  }
+
   &.card--flipped {
     background: $primary-color;
     border: 7px solid white;
