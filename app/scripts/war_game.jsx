@@ -59,20 +59,23 @@ export default class WarGame extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={ this.state.phase === 'newGame' ? 'game-splash game-splash--new' : 'game-splash' }>
         <header className="topbar">
-          <div className="topbar__left">
+          <div className="topbar__left game-splash__in-game">
             <GameRound round={ this.state.round } />
           </div>
 
-          <div className="topbar__right">
+          <div className="topbar__right game-splash__in-game">
             <GameScore playerScore={this.state.playerScore} computerScore={this.state.computerScore} />
           </div>
 
-          <h1 className="topbar__title">War (Guerre)</h1>
+          <div className="topbar__center game-splash__center">
+            <h1 className="topbar__title">War (Guerre)</h1>
+            <button className="button game-splash__out-of-game" style={{ marginTop: '4em' }} onClick={this.nextStep.bind(this)}>New Game!</button>
+          </div>
         </header>
 
-        <main>
+        <main className="game-splash__in-game">
           <section className="card-mat">
             <div className="card-mat__slot">
               <PlayingCardStack opponent>
