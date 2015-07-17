@@ -15,11 +15,17 @@ export default class WarGame extends React.Component {
 
     this.game = new Game();
 
-    this.state = Object.assign({}, this.game.gameState, {
-      round: this.game.round,
-      playerScore: this.game.player.score,
-      computerScore: this.game.computer.score
-    });
+    this.state = {
+      round: 0,
+      playerScore: 0,
+      computerScore: 0,
+      playerCard: null,
+      playerPrizes: [],
+      computerCard: null,
+      computerPrizes: [],
+      winner: null,
+      phase: 'newGame'
+    };
   }
 
   buttonText() {
@@ -69,7 +75,7 @@ export default class WarGame extends React.Component {
               </PlayingCardStack>
             </div>
             <div className="card-mat__slot">
-              { this.state.computerCard ? <PlayingCard {...this.state.computerCard} /> : <Spacer/> }
+              { this.state.computerCard ? <PlayingCard {...this.state.computerCard} /> : <Spacer placeholder/> }
             </div>
             <div className="card-mat__slot">
               <Spacer>
@@ -86,7 +92,7 @@ export default class WarGame extends React.Component {
               </Spacer>
             </div>
             <div className="card-mat__slot">
-              { this.state.playerCard ? <PlayingCard {...this.state.playerCard} /> : <Spacer/> }
+              { this.state.playerCard ? <PlayingCard {...this.state.playerCard} /> : <Spacer placeholder/> }
             </div>
             <div className="card-mat__slot">
               <PlayingCardStack>

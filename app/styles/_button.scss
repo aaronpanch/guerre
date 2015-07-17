@@ -11,4 +11,9 @@
   outline: none;
   padding: 1em 2em;
   text-transform: uppercase;
+
+  &:active {
+    background: darken(#91c945, 5%);
+    box-shadow: 0 -1px rgba(0, 0, 0, 0.15) inset;
+  }
 }
