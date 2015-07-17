@@ -68,7 +68,7 @@ export default class WarGame extends React.Component {
         <main>
           <section className="card-mat">
             <div className="card-mat__slot">
-              <PlayingCardStack>
+              <PlayingCardStack opponent>
                 {this.state.computerPrizes.map((el, i) => {
                   return <PlayingCard {...el} flipped={i % 4 !== 3} key={`computerPrize${i}`} />
                 })}
