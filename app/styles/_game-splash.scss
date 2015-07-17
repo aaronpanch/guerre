@@ -1,0 +1,31 @@
+.game-splash {
+  display: block;
+}
+
+.game-splash__in-game {
+  transition: opacity 0.5s 0.2s;
+  opacity: 1;
+
+  .game-splash--new & {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.game-splash__out-of-game {
+  display: none;
+
+  .game-splash--new & {
+    display: inline-block;
+  }
+}
+
+.game-splash__center {
+  position: relative;
+  transform: translate3d(0,0,0);
+  transition: transform 0.3s ease-in-out;
+
+  .game-splash--new & {
+    transform: translate3d(0,24em,0);
+  }
+}

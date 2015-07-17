@@ -1,5 +1,6 @@
 .topbar {
-  overflow: hidden;
+  display: inline-block;
+  width: 100%;
   padding: 1em;
 }
 
@@ -15,5 +16,9 @@
   font-family: 'Playfair Display', serif;
   font-weight: 900;
   font-size: 5em;
+}
+
+.topbar__center {
   text-align: center;
+  margin-bottom: 0.5em;
 }
