@@ -30,4 +30,9 @@ export default class Player {
     return stack;
   }
 
+  bankCards(prizes) {
+    this.bank = this.bank.concat(prizes);
+    return this.bank;
+  }
+
 }

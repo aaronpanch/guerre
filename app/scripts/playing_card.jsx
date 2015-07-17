@@ -10,7 +10,7 @@ export default class PlayingCard extends React.Component {
     if (this.props.flipped) {
       classNames.push('card--flipped');
     } else if (this.props.suit) {
-      classNames.push(`card--${ this.props.suit }`);
+      classNames.push(`card--${ this.props.suit.toLowerCase() }`);
     }
 
     return classNames.join(' ');
