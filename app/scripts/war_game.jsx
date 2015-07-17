@@ -34,10 +34,17 @@ export default class WarGame extends React.Component {
       draw: 'Draw',
       warDraw: 'Draw Another',
       reinforce: 'Draw Three',
-      collect: 'Collect'
+      collect: 'Collect',
+      give: 'Give'
     };
 
-    return translation[this.state.phase];
+    var lookup = this.state.phase;
+
+    if (lookup === 'collect' && this.state.winner != this.game.player) {
+      lookup = 'give';
+    }
+
+    return translation[lookup];
   }
 
   nextStep() {
