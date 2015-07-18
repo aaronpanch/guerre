@@ -11,6 +11,7 @@ $card-width: 260px;
   justify-content: center;
   overflow: hidden;
   position: relative;
+  transform: translate3d(0,0,0);
   width: $card-width;
 
   &.card--spacer {
@@ -30,7 +31,7 @@ $card-width: 260px;
   }
 
   &.card--opponent {
-    transform: rotate(180deg);
+    transform: rotate(180deg) translate3d(0,0,0);
     box-shadow: $shadow-flipped;
   }
 

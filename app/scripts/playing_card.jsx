@@ -13,6 +13,10 @@ export default class PlayingCard extends React.Component {
       classNames.push(`card--${ this.props.suit.toLowerCase() }`);
     }
 
+    if (this.props.opponent) {
+      classNames.push('card--opponent');
+    }
+
     return classNames.join(' ');
   }
 
