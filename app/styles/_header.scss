@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header__item {
+  flex: 1 0 0;
+}
+
+.header__center {
+  text-align: center;
+}
+
+.header__right {
+  text-align: right;
+}

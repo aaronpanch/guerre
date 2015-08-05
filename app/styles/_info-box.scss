@@ -1,0 +1,15 @@
+.info-box {
+  border: 1px solid black;
+  display: inline-block;
+  font-family: Helvetica;
+  text-align: center;
+  min-width: 200px;
+}
+.info-box__header {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+}
+.info-box__value {
+  padding: 1em;
+}
