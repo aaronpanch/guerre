@@ -1,0 +1,21 @@
+$default-border: 2px solid #000000;
+
+.upper-box{
+  border: $default-border;
+  display: inline-block;
+  text-align: center;
+}
+
+.upper-box__title {
+  border-bottom: $default-border;
+  margin: 0;
+  padding: 1em;
+}
+
+.upper-box--right{
+  float: right;
+}
+
+.upper-box--left{
+  float: left;
+}
