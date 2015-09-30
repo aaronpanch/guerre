@@ -1,0 +1,27 @@
+$info-box-padding: 1.5em;
+$info-box-border: 1px solid #ccc;
+
+.info-box {
+
+  border: $info-box-border;
+
+  &.info-box--right {
+    float: right;
+  }
+
+  &.info-box--left {
+    float: left;
+  }
+
+}
+
+.info-box__title {
+  background: #333;
+  border-bottom: $info-box-border;
+  color: #ccc;
+  padding: $info-box-padding;
+}
+
+.info-box__content {
+  padding: $info-box-padding;
+}

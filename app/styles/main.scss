@@ -1,7 +1,12 @@
 // This is the top-level SCSS file
 // Add styles here/import files that you'd like to use
+@import "reset";
+@import "info-box";
 
-.greeting {
+.title {
   font-family: sans-serif;
   font-weight: 300;
+  text-align: center;
 }
+
+
