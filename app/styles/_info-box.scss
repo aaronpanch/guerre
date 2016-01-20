@@ -1,0 +1,17 @@
+$info-box-border: 2px solid #000;
+
+.info-box {
+  border: $info-box-border;
+  max-width: 200px;
+}
+
+.info-box__header {
+  background: #2CA5FC;
+  border-bottom: $info-box-border;
+  color: #fff;
+  font-weight: 300;
+  font-size: 20px;
+  margin: 0;
+  padding: 1rem 0;
+  text-align: center;
+}
