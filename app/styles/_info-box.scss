@@ -2,11 +2,19 @@ $info-box-border: 2px solid #000;
 
 .info-box {
   border: $info-box-border;
-  max-width: 200px;
+  border-radius: 50%;
+  height: 150px;
+  overflow: hidden;
+  width: 150px;
+  transition: 300ms border-radius ease-in-out;
+
+  &:hover {
+    border-radius: 2px;
+  }
 }
 
 .info-box__header {
-  background: #2CA5FC;
+  background: #DB634F;
   border-bottom: $info-box-border;
   color: #fff;
   font-weight: 300;
@@ -14,4 +22,8 @@ $info-box-border: 2px solid #000;
   margin: 0;
   padding: 1rem 0;
   text-align: center;
+}
+
+.info-box__body {
+  padding: 1rem;
 }
