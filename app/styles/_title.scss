@@ -1,0 +1,19 @@
+.title {
+  &:hover {
+    animation: brianna 2s forwards;
+  }
+}
+
+@keyframes brianna {
+  0% {
+    color: black;
+  }
+
+  50% {
+    color: #F94225;
+  }
+
+  100% {
+    color: transparent;
+  }
+}
