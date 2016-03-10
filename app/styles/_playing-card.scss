@@ -1,7 +1,47 @@
 .playing-card {
+  align-items: center;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 0 2px 1px rgba(0,0,0,0.3);
+  display: flex;
   height: 21rem;
+  justify-content: center;
+  position: relative;
   width: 15rem;
+}
+
+.playing-card__figure {
+  width: 50%;
+}
+
+.playing-card__icon {
+  position: absolute;
+  text-align: center;
+  width: 45px;
+
+  &:before, &:after {
+    display: block;
+  }
+
+  &:before {
+    content: '4';
+    font-size: 45px;
+  }
+
+  &:after {
+    content: '\2660';
+    font-size: 60px;
+    margin-top: -20px;
+  }
+
+  &.playing-card__icon--upper-left {
+    left: 0;
+    top: 0;
+  }
+
+  &.playing-card__icon--bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+  }
 }
