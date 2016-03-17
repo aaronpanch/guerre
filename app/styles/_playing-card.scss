@@ -8,6 +8,14 @@
   justify-content: center;
   position: relative;
   width: 15rem;
+
+  &.playing-card--spade, &.playing-card--club {
+    color: #000;
+  }
+
+  &.playing-card--heart, &.playing-card--diamond {
+    color: red;
+  }
 }
 
 .playing-card__figure {
@@ -15,6 +23,22 @@
 }
 
 .playing-card__icon {
+  .playing-card--spade &:after {
+    content: '\2660';
+  }
+
+  .playing-card--heart &:after {
+    content: '\2665';
+  }
+
+  .playing-card--diamond &:after {
+    content: '\2666';
+  }
+
+  .playing-card--club &:after {
+    content: '\2663';
+  }
+
   position: absolute;
   text-align: center;
   width: 45px;
@@ -24,12 +48,11 @@
   }
 
   &:before {
-    content: '4';
+    content: attr(data-rank);
     font-size: 45px;
   }
 
   &:after {
-    content: '\2660';
     font-size: 60px;
     margin-top: -20px;
   }
