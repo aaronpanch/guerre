@@ -6,18 +6,15 @@ A browser based version of the relatively brainless card game _War!_
 
 
 ## Development Environment
-To set up your dev environment, you'll need to install the following tools:
+To set up your dev environment, you'll need to make sure you have the following tools:
 
 ### 1. Node.js (with NPM)
+Check to see you have node by checking the version: `node -v`.  Use version > 6.0.0.
+
+To install:
 ```
 $ brew update
 $ brew install node
-```
-
-### 2. Bower
-[Bower](http://bower.io) is a front-end package manager that make life supes easy.
-```
-$ npm install --global bower
 ```
 
 ### 3. Gulp
@@ -36,7 +33,6 @@ $ git clone https://github.com/aaronpanch/guerre.git
 Navigate to the root of the project `cd guerre` and run:
 ```
 $ npm install
-$ bower install
 ```
 
 ## 6. Start the Server (last step!)
