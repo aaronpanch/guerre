@@ -16,7 +16,7 @@ gulp.task('serve', ['styles'], () => {
 
 gulp.task('styles', () => {
   return gulp.src('styles/main.scss')
-    .pipe(sass())
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('dist/css'))
     .pipe(browserSync.stream());
 });
